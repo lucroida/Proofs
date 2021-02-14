@@ -131,19 +131,18 @@ BOOL WritePersistentStore(LPCSTR lpName, LPCSTR lpGuid, PVOID pValue, DWORD dwSi
     return TRUE;
 }
 
-// Delete an item from the persistent store
+// Delete an item from NVRAM
 BOOL DeletePersistentStore(LPCSTR lpName, LPCSTR lpGuid) {
     DWORD dwRet = 0;
     DWORD dwAttributes = VARIABLE_ATTRIBUTE_NON_VOLATILE
         | VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS
         | VARIABLE_ATTRIBUTE_RUNTIME_ACCESS;
 
-    // nSize parameter signals to delete
     dwRet = SetFirmwareEnvironmentVariableExA(
         lpName,
         lpGuid,
-        0,
-        0,                  
+        0,          // Signal to delete
+        0,          //     
         dwAttributes);
 
     if (dwRet == 0)
