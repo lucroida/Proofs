@@ -1,2 +1,3 @@
 # Proofs
-Proof-of-concepts for various concepts in malware
+Proof-of-concept research for various concepts in malware. 
+
