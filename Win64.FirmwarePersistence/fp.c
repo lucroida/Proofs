@@ -78,7 +78,6 @@ DWORD main()
     // Decode the data using the original key
     XorEncode(&PersistentData, &pKey, dwPersistDataSize);
 
-_delete:
     // Demonstrate deletion of UEFI firmware variable
     bStatus = DeletePersistentStore(szStoreName, szGuid);
     if (!bStatus)
